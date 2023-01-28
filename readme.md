@@ -27,7 +27,7 @@ Requisitos
     Debe protegerse main en GitHub para que todo lo que se mergee pase por pull-request y que el workflow se cumpla.
     En el caso de llegar a HTML/CSS. 4.1. Se utilizará BEM/SASS. 4.2. Se debe desplegar a Netlify.
 
-Milestones
+Milestones.
 
     Programa funcional en JS. Las células se quedan pegadas la pared.
     Programa 100% testeado.
