@@ -7,7 +7,9 @@
   "scripts": {
     "test": "jest --watchAll --coverage",
     "test:prod": "jest --watchAll --coverage --watchAll=false",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "tsc -w --skipLibCheck",
+    "main": "ts-node src/app"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,9 @@
     "eslint-config-xo-typescript": "^0.55.1",
     "husky": "^8.0.3",
     "jest": "^29.4.1",
+    "t": "^0.5.1",
+    "ts-jest": "^29.0.5",
+    "ts-node": "^10.9.1",
     "typescript": "^4.9.4"
   }
 }
