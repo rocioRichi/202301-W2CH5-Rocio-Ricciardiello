@@ -1,9 +1,9 @@
 // Send the cell to cementery
 export const guillotineCell = (i, j, cementery, matrix) => {
-  const freshdeath = cementery.find(
+  const freshdead = cementery.find(
     (deathbody) => deathbody.i === i && deathbody.j === j
   );
-  if (!freshdeath) {
+  if (!freshdead) {
     cementery.push({
       i,
       j,
