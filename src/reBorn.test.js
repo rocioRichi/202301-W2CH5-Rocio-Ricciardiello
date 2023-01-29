@@ -42,4 +42,22 @@ describe('reBorn', () => {
     console.log(myMatrix2);
     expect(neighbourhoddOf01Cell).toBe(3);
   });
+
+  test('Check all the cementery´s cells than have 3 alive´s Cells around it', () => {
+    const myMatrix3 = [
+      ['x', 'x', 'O', 'x', 'O'],
+      ['O', 'O', 'O', 'O', 'O'],
+      ['O', 'O', 'O', 'O', 'O'],
+      ['O', 'O', 'O', 'O', 'O'],
+      ['O', 'O', 'O', 'O', 'O'],
+    ];
+
+    const cementery = [({ i: 0, j: 1 }, { i: 1, j: 3 }, { i: 3, j: 3 })];
+    const readyForResurrection = cementery.filter(
+      (deadbody) => checkNeighbour(deadbody.i, deadbody.j, myMatrix3) === 3
+    );
+    let neighbourhoddOf01Cell = checkNeighbour(1, 0, myMatrix3);
+
+    expect(neighbourhoddOf01Cell).toBe(3);
+  });
 });
