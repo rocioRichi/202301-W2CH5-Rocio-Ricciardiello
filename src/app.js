@@ -24,6 +24,4 @@ const startGame = () => {
   }, 10000);
 };
 
-// Create a cell and insert into the myMatrix
-
 startGame();
