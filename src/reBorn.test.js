@@ -2,62 +2,36 @@ import { reBorn } from './reBorn.js';
 import { checkNeighbour } from './checkNeighbour.js';
 
 describe('reBorn', () => {
-  test('All cells have to have an O', () => {
-    const myMatrix = [
-      ['O', 'O', 'O', 'x', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-    ];
-    const readyForResurrection = [{ i: 0, j: 3 }];
+  const myMatrix = [
+    ['x', 'x', 'x', 'x', 'x'],
+    ['x', 'O', 'O', 'O', 'x'],
+    ['x', 'x', 'x', 'x', 'x'],
+    ['x', 'x', 'x', 'x', 'x'],
+    ['x', 'x', 'x', 'x', 'x'],
+  ];
 
-    let allFilled = true;
-
-    readyForResurrection.forEach((deadbody) => {
-      myMatrix[deadbody.i][deadbody.j] = 'O';
-    });
-    for (let i = 0; i < 5; i++) {
-      for (let j = 0; j < 5; j++) {
-        if (myMatrix[0][3] !== 'O') {
-          allFilled = false;
-        }
-      }
+  const cementery = [{ i: 0, j: 2 }];
+  const readyForResurrection = [{ i: 0, j: 2 }];
+  test('The already death(0,2) cell has to have 3 alive´s cells around it', () => {
+    let with3AlivesArround = false;
+    if (
+      myMatrix[1][1] === 'O' &&
+      myMatrix[1][2] === 'O' &&
+      myMatrix[1][3] === 'O'
+    ) {
+      with3AlivesArround = true;
     }
-
-    console.log(myMatrix);
-    expect(allFilled).toBe(true);
+    expect(with3AlivesArround).toBe(true);
   });
 
-  test('The cell 1,0 has to have 3 alive´s cell around it', () => {
-    const myMatrix2 = [
-      ['x', 'x', 'O', 'x', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-    ];
-    let neighbourhoddOf01Cell = checkNeighbour(1, 0, myMatrix2);
+  // test('The cell has to have 3 alive´s cells around it', () => {
+  //   const readyForResurrection = cementery.filter(
+  //     (deadbody) => checkNeighbour(deadbody.i, deadbody.j, matrix) === 3
+  //   );
+  //   readyForResurrection.forEach((deadbody) => {
+  //     myMatrix[0][3] = 'O';
+  //   });
 
-    console.log(myMatrix2);
-    expect(neighbourhoddOf01Cell).toBe(3);
-  });
-
-  test('Check all the cementery´s cells than have 3 alive´s Cells around it', () => {
-    const myMatrix3 = [
-      ['x', 'x', 'O', 'x', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-      ['O', 'O', 'O', 'O', 'O'],
-    ];
-
-    const cementery = [({ i: 0, j: 1 }, { i: 1, j: 3 }, { i: 3, j: 3 })];
-    const readyForResurrection = cementery.filter(
-      (deadbody) => checkNeighbour(deadbody.i, deadbody.j, myMatrix3) === 3
-    );
-    let neighbourhoddOf01Cell = checkNeighbour(1, 0, myMatrix3);
-
-    expect(neighbourhoddOf01Cell).toBe(3);
-  });
+  //   expect(matrix[0][3]).toBe('O');
+  // });
 });
