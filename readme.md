@@ -6,7 +6,7 @@ Conway Game of Life 🦠 !
 
 Deberás de programar el Juego de la vida de Conway.
 
-Game of life demo
+Game of life demo demo
 
 Un resumen de las reglas:
 
